@@ -12,13 +12,17 @@ bool module_lawn::kill_zombies(int n)
         zombienum = 0;
     return 1;
 }
+int module_lawn::returnzombienum()
+{
+    return zombienum;
+}
 int module_lawn::returnkilledzombies()
 {
     return killedzombie;
 }
 module_lawn::module_lawn()
 {
-    zombienum = 0;
+    zombienum = 1;
     killedzombie = 0;
     cout << "Lawn loaded successful." << endl;
 }
@@ -55,4 +59,5 @@ int module_garage::returnfixprocess()
 module_garage::module_garage()
 {
     fix_process = 1;
+    cout << "Garage loaded successful." << endl;
 }
