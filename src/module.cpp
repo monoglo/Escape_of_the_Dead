@@ -7,7 +7,8 @@ bool module_lawn::add_zombies(int n)
 bool module_lawn::kill_zombies(int n)
 {
     zombienum -= n;
-    killedzombie += n;
+    if(zombienum>0)
+        killedzombie += n;
     if (zombienum < 0)
         zombienum = 0;
     return 1;

@@ -29,11 +29,12 @@ bool game::distribution_dice()
 {
     while (1)
     {
+        cin.clear();
+        cin.sync();
         cout << "Please input the plan of distribution:(killzombie addhp fixcar)" << endl;
         cin >> distribution_killzombies >> distribution_addhp >> distribution_fix;
         if (distribution_killzombies >= 0 && distribution_killzombies <= 4 && distribution_addhp >= 0 && distribution_addhp <= 4 && distribution_fix >= 0 && distribution_fix <= 4 && distribution_killzombies + distribution_addhp + distribution_fix == 4)
             break;
-
         else
             cout << "Sorry, you have only 4 dices!" << endl;
     }
