@@ -145,15 +145,30 @@ bool game::islose()
 bool game::situation()
 {
     cout << "=====ROUND:" << round << "=====" << endl;
-    cout << "zombiesnum:" << returnzombienum() << endl;
-    cout << "barricadehp:" << returnbarricadehp() << "/10" << endl;
-    cout << "fixprocess:" << returnfixprocess() << "0%" << endl;
-    cout << "killedzombies:" << returnkilledzombies() << "/10" << endl;
+    cout << "Zombiesnum:" << returnzombienum() << endl;
+    cout << "Barricadehp:" << returnbarricadehp() << "/10" << endl;
+    cout << "Fixprocess:" << returnfixprocess() << "0%" << endl;
+    cout << "Killedzombies:" << returnkilledzombies() << "/10" << endl;
     cout << "=================" << endl;
     return 1;
 }
 int game::startgame()
 {
+    cout << "  ______                            ______                  " << endl;
+    cout << "|  ____|                          |  ____|                  " << endl;
+    cout << "| |__   ___  ___ __ _ _ __   ___  | |__ _ __ ___  _ __ ___  " << endl;
+    cout << "|  __| / __|/ __/ _` | '_ \\ / _ \\ |  __| '__/ _ \\| '_ ` _ \\ " << endl;
+    cout << "| |____\\__ \\ (_| (_| | |_) |  __/ | |  | | | (_) | | | | | |" << endl;
+    cout << "|______|___/\\___\\__,_| .__/ \\___| |_|  |_|  \\___/|_| |_| |_|" << endl;
+    cout << "                     | |                                    " << endl;
+    cout << " _______ _           |_|___                 _               " << endl;
+    cout << "|__   __| |          |  __ \\               | |              " << endl;
+    cout << "   | |  | |__   ___  | |  | | ___  __ _  __| |              " << endl;
+    cout << "   | |  | '_ \\ / _ \\ | |  | |/ _ \\/ _` |/ _` |              " << endl;
+    cout << "   | |  | | | |  __/ | |__| |  __/ (_| | (_| | by:          " << endl;
+    cout << "   |_|  |_| |_|\\___| |_____/ \\___|\\__,_|\\__,_| rankofmatrix " << endl;
+    cout << "                                                            "<< endl;
+    cout << "                                                            " << endl;
     while (1)
     {
         situation();
