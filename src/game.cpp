@@ -47,17 +47,18 @@ int game::dice()
 }
 bool game::throw_dice()
 {
-    int i, d;
+    int i, d, n;
     for (i = 0; i < distribution_killzombies; i++)
     {
         d = dice();
         if (d > 2)
         {
+            n = returnzombienum();
             kill_zombies(1);
-            cout << "The dice is " << d << ", kill successful!" << endl;
+            cout << "The dice is " << d << ", kill successful!(" << n << "->" << returnzombienum() << ")" << endl;
         }
         else
-            cout << "The dice is " << d << ", kill failed!" << endl;
+            cout << "The dice is " << d << ", kill failed!(" << returnzombienum() << "->" << returnzombienum() << ")" << endl;
         Sleep(1000);
     }
     for (i = 0; i < distribution_addhp; i++)
@@ -65,11 +66,12 @@ bool game::throw_dice()
         d = dice();
         if (d > 2)
         {
+            n = returnbarricadehp();
             add_hp(1);
-            cout << "The dice is " << d << ", heal successful!" << endl;
+            cout << "The dice is " << d << ", heal successful!(" << n << "->" << returnbarricadehp() << ")" << endl;
         }
         else
-            cout << "The dice is " << d << ", heal failed!" << endl;
+            cout << "The dice is " << d << ", heal failed!(" << returnbarricadehp() << "->" << returnbarricadehp() << ")" << endl;
         Sleep(1000);
     }
     for (i = 0; i < distribution_fix; i++)
@@ -77,11 +79,12 @@ bool game::throw_dice()
         d = dice();
         if (d > 4)
         {
+            n = returnfixprocess();
             fix_car(1);
-            cout << "The dice is " << d << ", fix successful!" << endl;
+            cout << "The dice is " << d << ", fix successful!(" << n << "->" << returnfixprocess() << ")" << endl;
         }
         else
-            cout << "The dice is " << d << ", fix failed!" << endl;
+            cout << "The dice is " << d << ", fix failed!(" << returnfixprocess() << "->" << returnfixprocess() << ")" << endl;
         Sleep(1000);
     }
     return 1;
@@ -154,25 +157,10 @@ bool game::situation()
 }
 int game::startgame()
 {
-    cout << "  ______                            ______                  " << endl;
-    cout << "|  ____|                          |  ____|                  " << endl;
-    cout << "| |__   ___  ___ __ _ _ __   ___  | |__ _ __ ___  _ __ ___  " << endl;
-    cout << "|  __| / __|/ __/ _` | '_ \\ / _ \\ |  __| '__/ _ \\| '_ ` _ \\ " << endl;
-    cout << "| |____\\__ \\ (_| (_| | |_) |  __/ | |  | | | (_) | | | | | |" << endl;
-    cout << "|______|___/\\___\\__,_| .__/ \\___| |_|  |_|  \\___/|_| |_| |_|" << endl;
-    cout << "                     | |                                    " << endl;
-    cout << " _______ _           |_|___                 _               " << endl;
-    cout << "|__   __| |          |  __ \\               | |              " << endl;
-    cout << "   | |  | |__   ___  | |  | | ___  __ _  __| |              " << endl;
-    cout << "   | |  | '_ \\ / _ \\ | |  | |/ _ \\/ _` |/ _` |              " << endl;
-    cout << "   | |  | | | |  __/ | |__| |  __/ (_| | (_| | by:          " << endl;
-    cout << "   |_|  |_| |_|\\___| |_____/ \\___|\\__,_|\\__,_| rankofmatrix " << endl;
-    cout << "                                                            "<< endl;
-    cout << "                                                            " << endl;
     while (1)
     {
-        situation();
         zombiescoming(returnfixprocess());
+        situation();
         distribution_dice();
         throw_dice();
         if (iswin())
@@ -193,12 +181,34 @@ int game::startgame()
             break;
         }
         round++;
+        system("pause");
     }
     return 1;
 }
 int main()
 {
+    int cho;
     game g;
-    g.startgame();
+    cout << "  ______                            ______                  " << endl;
+    cout << "|  ____|                          |  ____|                  " << endl;
+    cout << "| |__   ___  ___ __ _ _ __   ___  | |__ _ __ ___  _ __ ___  " << endl;
+    cout << "|  __| / __|/ __/ _` | '_ \\ / _ \\ |  __| '__/ _ \\| '_ ` _ \\ " << endl;
+    cout << "| |____\\__ \\ (_| (_| | |_) |  __/ | |  | | | (_) | | | | | |" << endl;
+    cout << "|______|___/\\___\\__,_| .__/ \\___| |_|  |_|  \\___/|_| |_| |_|" << endl;
+    cout << "                     | |                                    " << endl;
+    cout << " _______ _           |_|___                 _               " << endl;
+    cout << "|__   __| |          |  __ \\               | |              " << endl;
+    cout << "   | |  | |__   ___  | |  | | ___  __ _  __| |              " << endl;
+    cout << "   | |  | '_ \\ / _ \\ | |  | |/ _ \\/ _` |/ _` |              " << endl;
+    cout << "   | |  | | | |  __/ | |__| |  __/ (_| | (_| | by:          " << endl;
+    cout << "   |_|  |_| |_|\\___| |_____/ \\___|\\__,_|\\__,_| rankofmatrix " << endl;
+    cout << "                                                            " << endl;
+    cout << "============================================================" << endl;
+    cout << "                          1.Play                            " << endl;
+    cout << "                          2.Exit                            " << endl;
+    cin >> cho;
+    system("cls");
+    if (cho == 1)
+        g.startgame();
     return 0;
 }
