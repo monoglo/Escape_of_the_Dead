@@ -12,7 +12,7 @@ bool game::zombiescoming(int n)
 {
     if (zombies_time == 0)
     {
-        if (1 <= n && n <= 30)
+        if (1 <= n && n <= 3)
             add_zombies(1);
         else if (4 <= n && n <= 5)
             add_zombies(2);
@@ -42,7 +42,7 @@ bool game::distribution_dice()
 }
 int game::dice()
 {
-    srand(time(0)); //ÉèÖÃÖÖ×ÓÊý£¬ÓÉÓÚÓÐÁË¼ä¸ô£¬ÄÜ¹»±£Ö¤ÖÖ×ÓÊý²»Í¬
+    srand(time(0)); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë¼ï¿½ï¿½ï¿½Ü¹ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬
     return (rand() % 6 + 1);
 }
 bool game::throw_dice()
@@ -110,15 +110,19 @@ bool game::killbonus()
         {
         case 1:
             kill_zombies(100);
+            setkilledzombies();
             break;
         case 2:
             fix_car(1);
+            setkilledzombies();
             break;
         case 3:
             addzombiestime();
+            setkilledzombies();
             break;
         case 4:
             add_hp(3);
+            setkilledzombies();
             break;
         default:
             break;
@@ -166,12 +170,14 @@ int game::startgame()
         if (iswin())
         {
             cout << "You win!" << endl;
+            system("pause");
             break;
         }
         zombiesdamage();
         if (islose())
         {
             cout << "You lose!" << endl;
+            system("pause");
             break;
         }
         killbonus();

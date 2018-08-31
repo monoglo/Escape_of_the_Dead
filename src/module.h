@@ -10,6 +10,7 @@ public:
   bool kill_zombies(int n);
   int returnzombienum();
   int returnkilledzombies();
+  int setkilledzombies();
   module_lawn();
 
 private:

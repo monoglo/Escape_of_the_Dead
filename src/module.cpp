@@ -21,6 +21,11 @@ int module_lawn::returnkilledzombies()
 {
     return killedzombie;
 }
+int module_lawn::setkilledzombies()
+{
+    killedzombie = 0;
+    return 1;
+}
 module_lawn::module_lawn()
 {
     zombienum = 1;
