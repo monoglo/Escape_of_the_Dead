@@ -42,7 +42,7 @@ bool game::distribution_dice()
 }
 int game::dice()
 {
-    srand(time(0)); //�������������������˼���ܹ���֤��������ͬ
+    srand(time(0));
     return (rand() % 6 + 1);
 }
 bool game::throw_dice()
